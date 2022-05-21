@@ -1,0 +1,20 @@
+body {
+    background-image: url("../images/weather.jfif");
+    background-color: #cccccc;
+    width:100%;
+   }
+
+.cssClass1 {
+    font-size: 24px;
+    color: rgb(87, 79, 196);
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cssClass2 {
+    font-size: 20px;
+    color: rgb(87, 79, 196);
+    font-weight: bold;
+    text-align: center;
+}

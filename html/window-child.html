@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/window-child.css">
+</head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/checkout.js"></script>
+
+  <!-- Here we create a div that will be replaced with our data when we get it (see function getWeather) -->
+  <div id="tempWidget">
+    טוען...
+  </div>
+
+  <script>
+    // Here we create a reference for our div
+    var element = document.getElementById('tempWidget');
+    // Here is how we convert Kelvin to Celcius 
+    function k2c(kelvin) {
+      return (kelvin - 273.15).toFixed(2);
+    }
+    // Here is our function that gets the data and shows it inside our div (tempWidget)
+    async function getWeather() {
+      fetch('https://api.openweathermap.org/data/2.5/weather?q=Israel&appid=8f8eaa84a78045e9ac5907579ec5291a')
+        .then(response => response.text())
+        .then(response => {
+          const obj = JSON.parse(response);
+          var tempArr = { "temperature": obj.main.temp, "feels_like": obj.main.feels_like, "humidity": obj.main.humidity, "pressure": obj.main.pressure, "city": obj.name, "desc": obj.description };
+
+          var myHTML = "";
+          myHTML += '<p class="cssClass1">City: ' + tempArr["city"] + '</p>';
+          myHTML += '<h6 class="cssClass2">Temperature: ' + k2c(tempArr["temperature"]) + '°C</h6>';
+          myHTML += '<h6 class="cssClass2">It feels like: ' + k2c(tempArr["feels_like"]) + '°C</h6>';
+          myHTML += '<h6 class="cssClass2">Humidity: ' + tempArr["humidity"] + '</h6>';
+
+          element.innerHTML = myHTML;
+          console.log(tempArr);
+
+        });
+    }
+    getWeather();
+  </script>
+</body>
+
+</html>

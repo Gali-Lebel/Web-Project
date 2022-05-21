@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/checkout.css">
+</head>
+
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/orders.js"></script>
+
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a id="passArrayToHome" href="homepage.html">Home</a></li>
+        <li><a id="passArrayToProducts" href="products.html">Shop</a></li>
+        <li><a id="passArrayToCheckout" href="checkoutN.html">Shopping cart</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><span id="user_hello"></span></li>
+        <li><input type="button" id="login" class="btn btn-danger btn-sm" value="Log In"></input></li>
+        <li><input type="button" id="weatherBtn" class="btn btn-sm"
+            onClick="window.open('window-child.html','Ratting','width=550,height=170,left=150,top=200,toolbar=0,status=0') "
+            value="Weather"></input></li>
+      </ul>
+      </ul>
+    </div>
+  </nav>
+
+  <table id="table">
+    <th>Order Number</th>
+    <th>Details: Item Code, Name, Amount</th>
+    <th></th>
+    <th></th>
+  </table>
+
+</body>
+
+</html>

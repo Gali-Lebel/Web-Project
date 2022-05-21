@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/products.css">
+
+
+
+</head>
+
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="../js/products.js"></script>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a id="passArrayToHome" href="homepage.html">Home</a></li>
+        <li><a id="passArrayToCheckout" href="checkoutN.html">Shopping cart</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="passArrayToOrder" href="orders.html">Orders</a></li>
+        <li><span id="user_hello"></span></li>
+        <li><input type="button" id="login" class="btn btn-danger btn-sm" value="Log In"></input></li>
+        <li><input type="button" id="weatherBtn" class="btn btn-sm"
+            onClick="window.open('window-child.html','Ratting','width=550,height=170,left=150,top=200,toolbar=0,status=0') "
+            value="Weather"></input></li>
+      </ul>
+      </ul>
+    </div>
+  </nav>
+
+  <table class="center">
+    <th></th>
+    <th> Item Code</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Variant</th>
+    <th>Price</th>
+    <th></th>
+    <tr id="Nature-puzzle">
+      <td> <img src='../images/puzzel_N.jpg' height="150" width="150"></img> </td>
+      <td id="Nature-puzzleCode">
+        <script type="text/javascript">
+          var code = puzzel_nature.item_id;
+          document.getElementById('Nature-puzzleCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="Nature-puzzleName">
+        <script type="text/javascript">
+          var name = puzzel_nature.item_name;
+          document.getElementById('Nature-puzzleName').innerHTML = name;
+        </script>
+      </td>
+      <td id="Nature-puzzleCaterory">
+        <script type="text/javascript">
+          var category = puzzel_nature.item_category;
+          document.getElementById('Nature-puzzleCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="Nature-puzzleVariant">
+        <script type="text/javascript">
+          var variant = puzzel_nature.item_variant;
+          document.getElementById('Nature-puzzleVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="Nature-puzzlePrice">
+        <script type="text/javascript">
+          var price = puzzel_nature.price;
+          document.getElementById('Nature-puzzlePrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addNature_puzzel"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button>
+      </td>
+    </tr>
+
+    <tr id="Animal-puzzle">
+      <td> <img src='../images/puzzel_A.jpg' height="150" width="150"></img> </td>
+      <td id="Animal-puzzleCode">
+        <script type="text/javascript">
+          var code = puzzel_animal.item_id;
+          document.getElementById('Animal-puzzleCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="Animal-puzzleName">
+        <script type="text/javascript">
+          var name = puzzel_animal.item_name;
+          document.getElementById('Animal-puzzleName').innerHTML = name;
+        </script>
+      </td>
+      <td id="Animal-puzzleCaterory">
+        <script type="text/javascript">
+          var category = puzzel_animal.item_category;
+          document.getElementById('Animal-puzzleCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="Animal-puzzleVariant">
+        <script type="text/javascript">
+          var variant = puzzel_animal.item_variant;
+          document.getElementById('Animal-puzzleVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="Animal-puzzlePrice">
+        <script type="text/javascript">
+          var price = puzzel_animal.price;
+          document.getElementById('Animal-puzzlePrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addAnimal_puzzel"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button>
+      </td>
+    </tr>
+
+    <tr id="Monopoly">
+      <td> <img src='../images/monapoly.jpg' height="150" width="150"></img> </td>
+      <td id="MonopolyCode">
+        <script type="text/javascript">
+          var code = monopoly.item_id;
+          document.getElementById('MonopolyCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="MonopolyName">
+        <script type="text/javascript">
+          var name = monopoly.item_name;
+          document.getElementById('MonopolyName').innerHTML = name;
+        </script>
+      </td>
+      <td id="MonopolyCaterory">
+        <script type="text/javascript">
+          var category = monopoly.item_category;
+          document.getElementById('MonopolyCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="MonopolyVariant">
+        <script type="text/javascript">
+          var variant = monopoly.item_variant;
+          document.getElementById('MonopolyVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="MonopolyPrice">
+        <script type="text/javascript">
+          var price = monopoly.price;
+          document.getElementById('MonopolyPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addMonopoly"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Rummikub">
+      <td> <img src='../images/rummikub.jpg' height="150" width="150"></img> </td>
+      <td id="RummikubCode">
+        <script type="text/javascript">
+          var code = rummikub.item_id;
+          document.getElementById('RummikubCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="RummikubName">
+        <script type="text/javascript">
+          var name = rummikub.item_name;
+          document.getElementById('RummikubName').innerHTML = name;
+        </script>
+      </td>
+      <td id="RummikubCaterory">
+        <script type="text/javascript">
+          var category = rummikub.item_category;
+          document.getElementById('RummikubCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="RummikubVariant">
+        <script type="text/javascript">
+          var variant = rummikub.item_variant;
+          document.getElementById('RummikubVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="RummikubPrice">
+        <script type="text/javascript">
+          var price = rummikub.price;
+          document.getElementById('RummikubPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addRummikub"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Ring-toss">
+      <td> <img src='../images/ringtoss.jpg' height="150" width="150"></img> </td>
+      <td id="Ring-tossCode">
+        <script type="text/javascript">
+          var code = ring_toss.item_id;
+          document.getElementById('Ring-tossCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="Ring-tossName">
+        <script type="text/javascript">
+          var name = ring_toss.item_name;
+          document.getElementById('Ring-tossName').innerHTML = name;
+        </script>
+      </td>
+      <td id="Ring-tossCaterory">
+        <script type="text/javascript">
+          var category = ring_toss.item_category;
+          document.getElementById('Ring-tossCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="Ring-tossVariant">
+        <script type="text/javascript">
+          var variant = ring_toss.item_variant;
+          document.getElementById('Ring-tossVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="Ring-tossPrice">
+        <script type="text/javascript">
+          var price = ring_toss.price;
+          document.getElementById('Ring-tossPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addRing-toss"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Bowling">
+      <td> <img src='../images/bowling.jpeg' height="150" width="150"></img> </td>
+      <td id="BowlingCode">
+        <script type="text/javascript">
+          var code = bowling.item_id;
+          document.getElementById('BowlingCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="BowlingName">
+        <script type="text/javascript">
+          var name = bowling.item_name;
+          document.getElementById('BowlingName').innerHTML = name;
+        </script>
+      </td>
+      <td id="BowlingCaterory">
+        <script type="text/javascript">
+          var category = bowling.item_category;
+          document.getElementById('BowlingCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="BowlingVariant">
+        <script type="text/javascript">
+          var variant = bowling.item_variant;
+          document.getElementById('BowlingVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="BowlingPrice">
+        <script type="text/javascript">
+          var price = bowling.price;
+          document.getElementById('BowlingPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addBowling"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Kite">
+      <td> <img src='../images/kite.jpg' height="150" width="150"></img> </td>
+      <td id="KiteCode">
+        <script type="text/javascript">
+          var code = kite.item_id;
+          document.getElementById('KiteCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="KiteName">
+        <script type="text/javascript">
+          var name = kite.item_name;
+          document.getElementById('KiteName').innerHTML = name;
+        </script>
+      </td>
+      <td id="KiteCaterory">
+        <script type="text/javascript">
+          var category = kite.item_category;
+          document.getElementById('KiteCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="KiteVariant">
+        <script type="text/javascript">
+          var variant = kite.item_variant;
+          document.getElementById('KiteVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="KitePrice">
+        <script type="text/javascript">
+          var price = kite.price;
+          document.getElementById('KitePrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addKite"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Water-Gun">
+      <td> <img src='../images/watergun.jpg' height="150" width="150"></img> </td>
+      <td id="Water-GunCode">
+        <script type="text/javascript">
+          var code = water_gun.item_id;
+          document.getElementById('Water-GunCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="Water-GunName">
+        <script type="text/javascript">
+          var name = water_gun.item_name;
+          document.getElementById('Water-GunName').innerHTML = name;
+        </script>
+      </td>
+      <td id="Water-GunCaterory">
+        <script type="text/javascript">
+          var category = water_gun.item_category;
+          document.getElementById('Water-GunCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="Water-GunVariant">
+        <script type="text/javascript">
+          var variant = water_gun.item_variant;
+          document.getElementById('Water-GunVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="Water-GunPrice">
+        <script type="text/javascript">
+          var price = water_gun.price;
+          document.getElementById('Water-GunPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addWater-Gun"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Sea-Tools">
+      <td> <img src='../images/seatools.jpg' height="150" width="150"></img> </td>
+      <td id="Sea-ToolsCode">
+        <script type="text/javascript">
+          var code = sea_tools.item_id;
+          document.getElementById('Sea-ToolsCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="Sea-ToolsName">
+        <script type="text/javascript">
+          var name = sea_tools.item_name;
+          document.getElementById('Sea-ToolsName').innerHTML = name;
+        </script>
+      </td>
+      <td id="Sea-ToolsCaterory">
+        <script type="text/javascript">
+          var category = sea_tools.item_category;
+          document.getElementById('Sea-ToolsCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="Sea-ToolsVariant">
+        <script type="text/javascript">
+          var variant = sea_tools.item_variant;
+          document.getElementById('Sea-ToolsVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="Sea-ToolsPrice">
+        <script type="text/javascript">
+          var price = sea_tools.price;
+          document.getElementById('Sea-ToolsPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addSea-Tools"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button> </td>
+    </tr>
+
+    <tr id="Sea-Mattress">
+      <td> <img src='../images/seamattress.jpg' height="150" width="150"></img> </td>
+      <td id="Sea-MattressCode">
+        <script type="text/javascript">
+          var code = sea_mattress.item_id;
+          document.getElementById('Sea-MattressCode').innerHTML = code;
+        </script>
+      </td>
+      <td id="Sea-MattressName">
+        <script type="text/javascript">
+          var name = sea_mattress.item_name;
+          document.getElementById('Sea-MattressName').innerHTML = name;
+        </script>
+      </td>
+      <td id="Sea-MattressCaterory">
+        <script type="text/javascript">
+          var category = sea_mattress.item_category;
+          document.getElementById('Sea-MattressCaterory').innerHTML = category;
+        </script>
+      </td>
+      <td id="Sea-MattressVariant">
+        <script type="text/javascript">
+          var variant = sea_mattress.item_variant;
+          document.getElementById('Sea-MattressVariant').innerHTML = variant;
+        </script>
+      </td>
+      <td id="Sea-MattressPrice">
+        <script type="text/javascript">
+          var price = sea_mattress.price;
+          document.getElementById('Sea-MattressPrice').innerHTML = price;
+        </script>
+      </td>
+      <td> <button id="addSea-Mattress"> <img src='../images/basketIcon.jpg' height="50" width="50"> </img> </button>
+      </td>
+    </tr>
+
+
+
+  </table>
+
+</body>
+
+
+</html>

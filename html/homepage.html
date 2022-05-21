@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/homepage.css">
+</head>
+
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/homepage.js"></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg  fixed-top" role="navigation">
+                    <div class="container">
+                        <ul class="nav navbar-nav ">
+                            <li><a id="passArrayToShop" href="products.html">Shop</a></li>
+                            <li><a id="passArrayToCheckout" href="checkoutN.html">Shopping cart</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a id="passArrayToOrder" href="orders.html">Orders</a></li>
+                            <li><span id="user_hello"></span></li>
+                            <li><input type="button" id="login" class="btn btn-danger btn-sm" value="Log In"></input>
+                            </li>
+                            <li><input type="button" id="weatherBtn" class="btn btn-sm"
+                                    onClick="window.open('window-child.html','Ratting','width=550,height=170,left=150,top=200,toolbar=0,status=0') "
+                                    value="Weather"></input></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-16 mt-5" id="imageK">
+                <input type="image" src="../images/happykids.webp"> </input>
+            </div>
+
+            <div id="showTemperature"></div>
+
+            <div class="col-8 mt-5" id="parag">
+
+                <p>
+                    The Best Toys And Games Online From Our Toyshop ISRAEL Wide<br><br>
+                    Having been a family run toy shop for over 25 years now in seven high street locations we feel we
+                    can offer an unbeatable selection and extensive product knowledge at competitive prices.<br>
+                    Kids Stuff are one of the UK's leading toy and game shops offering you a vast range of toys, games,
+                    and educational products for the whole family whatever your age!<br>
+                    Shop here for the best toy lines such as Board games, puzzles, outdoor games and water games and
+                    more.<br>
+                    Explore our online shop for the perfect choice of classics and up to the minute toys and games
+                    today.<br>
+                    We understand the needs of parents trying to find the right toys for their kids.<br>
+                    We're on hand to bring you the best in all the latest popular toys, and some real classics that
+                    never go out of fashion.<br>
+                </p>
+            </div>
+        </div>
+        </div>
+</body>
+
+</html>
